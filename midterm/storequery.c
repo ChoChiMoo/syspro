@@ -28,14 +28,13 @@ int main(int argc, char* argv[]){
 		//set printtype [0->all] [1->available] [2-> exit] [3->reset]
 		printtype = 3;
 
-		printf("0: list of all goods, 1: list of available goods )");
+		printf("0: list of all goods, 1: list of available goods, 2: exit )");
 		scanf("%d", &printtype);
 		if (printtype == 0){
 			printf("%10s %10s %10s %10s %10s\n", "id", "name", "category", "expired date", "stock");
 
 				while (fread(&rec, sizeof(rec), 1, fp)>0)
 					printf("%10d %10s %10s %10d %10d\n", rec.id, rec.name, rec.category, rec.exdate, rec.stock);
-			fclose(fp);
 		}
 		else if (printtype == 1){
 						printf("%10s %10s %10s %10s %10s\n", "id", "name", "category", "expired date", "stock");
@@ -45,8 +44,10 @@ int main(int argc, char* argv[]){
 												printf("%10d %10s %10s %10d %10d\n", rec.id, rec.name, rec.category, rec.exdate, rec.stock);
 										}
 								}
-                        fclose(fp);
 				}
-				else if (printtype == 3) break;
+				else if (printtype == 2){
+					fclose(fp);
+					break;
+				}
 		}
 }
