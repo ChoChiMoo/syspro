@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-intmain(){
+int main(){
 	int count = 0, id;
 	char name[20];
 	struct student *p, *head = NULL;
